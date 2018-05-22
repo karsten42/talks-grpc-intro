@@ -1,32 +1,15 @@
-@title[Code Presenting]
-# Code
-# Presenting
+<span class="menu-title" style="display: none">Code Presenting</span>
+![Image](./assets/md/assets/grpc.png)
 
 ---
-@title[Working With Code Blocks]
+<span class="menu-title" style="display: none">Working With Code Blocks</span>
 
-### Code-Blocks
+### What is gRPC?
 
-#### The Basics
+- Open remote procedure call (RPC) framework
+- Enables client and server to communicate transparently
+- Stands for gRPC Remote procedure calls
+- Open sourced version of Stubby RPC used within google
 
-![Press Down Key](assets/down-arrow.png)
-
-+++
-@title[Sample Block]
-
-```python
-from time import localtime
-
-activities = {8: 'Sleeping', 9: 'Commuting', 17: 'Working',
-              18: 'Commuting', 20: 'Eating', 22: 'Resting' }
-
-time_now = localtime()
-hour = time_now.tm_hour
-
-for activity_time in sorted(activities.keys()):
-    if hour < activity_time:
-        print activities[activity_time]
-        break
-else:
-    print 'Unknown, AFK or sleeping!'
-```
+---
+### How does it work?
