@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "proto";
+
+service RunningAvg {
+    rpc Avg(stream Request) returns (stream Response);
+}
+
+message Request {
+    double x = 1;
+}
+
+message Response {
+    double avg = 1;
+}

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "proto";
+
+service Fibonacci {
+    rpc Fib(Request) returns (stream Response);
+}
+
+message Request {
+    int32 n = 1;
+}
+
+message Response {
+    int32 n = 1;
+    uint64 res = 2;
+}

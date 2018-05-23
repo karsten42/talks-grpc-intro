@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "proto";
+
+service AnswerService {
+    rpc Answer(Request) returns (Response);
+}
+
+message Request {
+    string question = 1;
+}
+
+message Response {
+    string answer = 1;
+}
