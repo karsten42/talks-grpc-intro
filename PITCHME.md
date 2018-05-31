@@ -12,7 +12,7 @@
 - efficient connection using HTTP/2
 - connection options: unary, server-side streaming, client-side streaming, bidirectional streaming 
 ---
-![Image](img/grpc_overview.svg)
+![Image](img/grpc_overview.png)
 ---
 ### Workflow
 ![Image](img/grpc_workflow.png)
