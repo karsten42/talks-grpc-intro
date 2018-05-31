@@ -1,5 +1,5 @@
 <span class="menu-title" style="display: none">Code Presenting</span>
-![Image](assets/grpc.png)
+![Image](img/grpc.png)
 
 ---
 <span class="menu-title" style="display: none">Working With Code Blocks</span>
@@ -12,10 +12,10 @@
 - efficient connection using HTTP/2
 - connection options: unary, server-side streaming, client-side streaming, bidirectional streaming 
 ---
-![Image](assets/grpc_overview.svg)
+![Image](img/grpc_overview.svg)
 ---
 ### Workflow
-![Image](assets/grpc_workflow.png)
+![Image](img/grpc_workflow.png)
 ---
 ### Why not REST?
 - textual
