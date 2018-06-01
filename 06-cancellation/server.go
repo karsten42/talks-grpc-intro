@@ -2,14 +2,16 @@ package main
 
 import (
 	"flag"
-	"google.golang.org/grpc"
 	"log"
 	"net"
+
+	"google.golang.org/grpc"
+
+	"time"
 
 	pb "github.com/Graphmasters/presentations/grpc/02-server-streaming/proto"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"time"
 )
 
 type server struct{}

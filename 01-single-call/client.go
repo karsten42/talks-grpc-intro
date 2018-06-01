@@ -3,15 +3,17 @@ package main
 import (
 	"context"
 	"flag"
+	"log"
+
 	pb "github.com/Graphmasters/presentations/grpc/01-single-call/proto"
 	"google.golang.org/grpc"
-	"log"
 )
 
 func main() {
 	serverAddr := flag.String("server_addr", "localhost:8000", "The server address in the format of host:port")
 
 	flag.Parse()
+
 	conn, err := grpc.Dial(*serverAddr, grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("fail to dial: %v", err)

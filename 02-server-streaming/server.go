@@ -2,12 +2,16 @@ package main
 
 import (
 	"flag"
-	"google.golang.org/grpc"
 	"log"
 	"net"
 
-	pb "github.com/Graphmasters/presentations/grpc/02-server-streaming/proto"
+	"google.golang.org/grpc"
+
 	"time"
+
+	pb "github.com/Graphmasters/presentations/grpc/02-server-streaming/proto"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 type server struct{}
@@ -28,9 +32,9 @@ func (server) Fib(req *pb.Request, stream pb.Fibonacci_FibServer) error {
 		})
 		a = b
 		b = bb
-		time.Sleep(10 * time.Millisecond)
+		time.Sleep(100 * time.Millisecond)
 	}
-	return nil
+	return status.Error(codes.InvalidArgument, "du bist doof")
 }
 
 func main() {

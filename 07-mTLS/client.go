@@ -45,8 +45,9 @@ func main() {
 		Certificates: []tls.Certificate{certificate},
 		RootCAs:      certPool,
 	})
+	println(creds)
 
-	conn, err := grpc.Dial(*serverAddr, grpc.WithTransportCredentials(creds))
+	conn, err := grpc.Dial(*serverAddr, grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("fail to dial: %v", err)
 	}

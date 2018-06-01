@@ -2,12 +2,14 @@ package main
 
 import (
 	"flag"
-	"google.golang.org/grpc"
 	"log"
 	"net"
 
-	pb "github.com/Graphmasters/presentations/grpc/03-client-streaming/proto"
+	"google.golang.org/grpc"
+
 	"io"
+
+	pb "github.com/Graphmasters/presentations/grpc/03-client-streaming/proto"
 )
 
 type server struct{}
@@ -16,7 +18,7 @@ func (server) Sum(stream pb.SumBuilder_SumServer) error {
 	sum := 0.0
 	for {
 		x, err := stream.Recv()
-		if err == io.EOF {
+		if err == io.EOF || sum > 40 {
 			// client finished sending, so we can return the response sentence
 			return stream.SendAndClose(&pb.Response{
 				Sum: sum,

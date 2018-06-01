@@ -3,10 +3,12 @@ package main
 import (
 	"context"
 	"flag"
-	pb "github.com/Graphmasters/presentations/grpc/03-client-streaming/proto"
-	"google.golang.org/grpc"
 	"log"
 	"strconv"
+	"time"
+
+	pb "github.com/Graphmasters/presentations/grpc/03-client-streaming/proto"
+	"google.golang.org/grpc"
 )
 
 func main() {
@@ -33,9 +35,13 @@ func main() {
 		if err != nil {
 			log.Fatalf("failed to parse input number %s: %v", s, err)
 		}
-		stream.Send(&pb.Request{
+		log.Printf("sending number: %f", x)
+		if err := stream.Send(&pb.Request{
 			X: x,
-		})
+		}); err != nil {
+			log.Fatalf("boom: %v", err)
+		}
+		time.Sleep(time.Second)
 	}
 	resp, err := stream.CloseAndRecv()
 	if err != nil {
